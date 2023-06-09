@@ -3,8 +3,8 @@ import data from '../utils/data.json'
 
 const Navbar = () => {
   return (
-    <nav className="p-6 bg-darkGray flex flex-col w-[18%] h-[100vh] justify-between">
-      <div className="flex flex-col gap-12">
+    <nav className="p-6 bg-darkGray flex flex-col w-[18%] gap-[45vh]">
+      <div className="flex flex-col gap-12 ">
         <div>
           <img src="assets/logo-light.svg" alt="logo" />
         </div>
@@ -27,9 +27,9 @@ const Navbar = () => {
       <div className="flex flex-col gap-4">
         <div className="bg-veryDarkGray flex gap-4 justify-center items-center py-4 rounded-md">
           <img src="assets/icon-light-theme.svg" alt="icon" />
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox" defaultChecked />
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
           <img src="assets/icon-dark-theme.svg" alt="icon" />
         </div>
