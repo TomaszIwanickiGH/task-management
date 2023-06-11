@@ -1,18 +1,23 @@
 import React from 'react'
 import data from '../utils/data.json'
+import { useDispatch, useSelector } from 'react-redux'
+import { setBoardName } from '../redux/boardName'
 
 const Navbar = () => {
+  // const { name } = useSelector((state) => state.boardName)
+  const dispatch = useDispatch()
+
   return (
     <nav className="p-6 bg-darkGray flex flex-col w-[18%] gap-[45vh]">
       <div className="flex flex-col gap-12 ">
         <div>
-          <img src="assets/logo-light.svg" alt="logo" />
+          <img src="assets/logo-light.svg" alt="logo" onClick={() => dispatch(setBoardName('Platform Launch'))} />
         </div>
         <div className="text-mediumGray">
           <h3 className="font-bold text-[13px] tracking-[3px]">ALL BOARDS ({data.boards.length})</h3>
           <ul className="flex flex-col gap-4 mt-8">
             {data.boards.map((board) => (
-              <li key={board.name} className="flex gap-4 items-center">
+              <li key={board.name} className="flex gap-4 items-center" onClick={() => dispatch(setBoardName(board.name))}>
                 <img src="assets/icon-board.svg" alt="icon" />
                 {board.name}
               </li>
