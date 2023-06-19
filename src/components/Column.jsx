@@ -1,22 +1,22 @@
 import React from 'react'
 import Task from './Task'
 import data from '../utils/data.json'
+import { useSelector } from 'react-redux'
 
-const Column = ({ color = 'white', title, amount }) => {
+const Column = ({ color = 'mainPurple', title, amount }) => {
+  const { name } = useSelector((state) => state.boardName)
   return (
     <div className="flex flex-col gap-8 p-8">
       <div className="flex gap-4 items-center text-mediumGray">
-        <div className={`bg-white w-[15px] h-[15px] rounded-full`} />
+        <div className={`bg-${color} w-[15px] h-[15px] rounded-full`} />
         <h3>
           {title} ({amount})
         </h3>
       </div>
 
-      {/* board.columns.map((column) => column.tasks.map((task) => task.title)) */}
-
       {data.boards.map(
         (board) =>
-          board.name === 'Platform Launch' &&
+          board.name === name &&
           board.columns.map(
             (column) =>
               column.name === title &&
@@ -25,7 +25,7 @@ const Column = ({ color = 'white', title, amount }) => {
                 task.subtasks.map((subtask) => {
                   if (subtask.isCompleted) counter++
                 })
-                return <Task key={index} title={task.title} message={`${counter} of ${task.subtasks.length} subtasks`} />
+                return <Task key={index} title={task.title} message={`${counter} of ${task.subtasks.length} subtasks`} viewTask={() => console.log(task.description)} />
               })
           )
       )}
