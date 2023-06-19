@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Task = ({ title, message }) => {
+const Task = ({ title, message, viewTask }) => {
   return (
-    <div className="bg-darkGray w-[300px] min-h-[90px] rounded-2xl flex flex-col p-4 gap-2">
+    <div className="bg-darkGray w-[300px] min-h-[90px] rounded-2xl flex flex-col p-4 gap-2" onClick={viewTask}>
       <h3 className="text-white">{title}</h3>
       <p className="text-mediumGray text-[14px]">{message}</p>
     </div>
