@@ -69,3 +69,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.darken-bg {
+  background: rgba(0, 0, 0, 0.5);
+}
